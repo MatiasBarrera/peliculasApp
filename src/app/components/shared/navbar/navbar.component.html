@@ -10,12 +10,12 @@
                 <a class="nav-link" [routerLink]="['/home']">Home</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/busqueda']">Busqueda</a>
+                <a class="nav-link" [routerLink]="['/busqueda/0']">Busqueda</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
-        </form>
+        <div>
+            <input class="form-control mr-sm-2" placeholder="Buscar" #search (keyup)="buscar(search.value)">
+        </div>
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0"><!-- Buscar <i class="fas fa-search-plus"></i></button> -->
     </div>
 </nav>

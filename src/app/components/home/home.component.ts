@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../services/peliculas.service';
+import { Router } from '@angular/router';
 
 import { PeliculaModel } from '../../models/pelicula.model';
-
 
 @Component({
   selector: 'app-home',
@@ -14,37 +14,38 @@ export class HomeComponent implements OnInit {
 
   // peliculas: PeliculaModel[] = [];
   peliculas = [];
-  constructor(public ps: PeliculasService) {
-    console.log('Constructor home');
-   this.ps.getPopulares().subscribe( res => {
-      this.peliculas = this.crearArreglo(res);
-      console.log(res);
-     });
-   this.ps.getPupularesKids().subscribe( res => {
-     console.log(res);
-   });
-   this.ps.getCartelera().subscribe( res => {
-     console.log(res);
-   });
+  opcionFilter = '';
+  constructor(public ps: PeliculasService, private route: Router) {
+
   }
 
   ngOnInit() {
+    this.opcion('cartelera');
   }
 
-  verMas(id: number) {
-    console.log(id);
+  verMas(id: string) {
+    this.route.navigateByUrl(`/busqueda/${id}`);
   }
 
   opcion(opc: string) {
     switch (opc) {
       case 'cartelera':
-          console.log('cartelera');
+          this.ps.getCartelera().subscribe( res => {
+            this.peliculas = this.crearArreglo(res);
+            this.opcionFilter = 'Cartelera';
+          });
         break;
       case 'populares':
-          console.log('popu');
+          this.ps.getPopulares().subscribe( res => {
+            this.peliculas = this.crearArreglo(res);
+            this.opcionFilter = 'Populares';
+           });
         break;
       case 'niños':
-          console.log('niños');
+          this.ps.getPupularesKids().subscribe( res => {
+            this.peliculas = this.crearArreglo(res);
+            this.opcionFilter = 'Niños';
+          });
         break;
       default:
         break;

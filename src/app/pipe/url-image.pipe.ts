@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { from } from 'rxjs';
 @Pipe({
   name: 'urlImage'
 })

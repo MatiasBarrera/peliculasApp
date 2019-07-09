@@ -1,25 +1,27 @@
-<div class="shadow p-2 mb-3 rounded" id="title">
-    <h3 class="text-center">'titulo a definir'</h3>
-</div>
-<hr>
-<div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Filtro
-    </button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item" (click)="opcion('cartelera')">Cartelera</a>
-        <a class="dropdown-item" (click)="opcion('populares')">Populares</a>
-        <a class="dropdown-item" (click)="opcion('niños')">Para Niños</a>
+<div class="animated fadeInLeft fast">
+    <div class="shadow p-2 mb-3 rounded" id="title">
+        <h3 class="text-center">'titulo a definir'</h3>
     </div>
-</div>
-<hr>
-<div class="card-columns">
-    <div *ngFor="let peli of peliculas" class="card " style="width: 18rem;" (click)="verMas(peli.id)">
-        <img [src]="peli.backdrop_path | urlImage" class="card-img-top" alt="... ">
-        <div class="card-body ">
-            <h5 class="card-title text-center">{{ peli.title }}</h5>
-            <p><span class="badge badge-info mr-1">Estreno: {{ peli.release_date | date }}</span><span class="badge badge-success">Valoracion: {{peli.vote_average}}</span> </p>
-            <p class="card-text ">{{ peli.overview | shortP }}</p>
+    <hr>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ opcionFilter }} <i class="fas fa-filter"></i>
+                </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="opcion('cartelera')">Cartelera</a>
+            <a class="dropdown-item" (click)="opcion('populares')">Populares</a>
+            <a class="dropdown-item" (click)="opcion('niños')">Para Niños</a>
+        </div>
+    </div>
+    <hr>
+    <div class="card-columns animated fadeIn faster">
+        <div *ngFor="let peli of peliculas" class="card " style="width: 18rem;">
+            <img [src]="peli.backdrop_path | urlImage" class="card-img-top" alt="... " (click)="verMas(peli.id)">
+            <div class="card-body ">
+                <h5 class="card-title text-center">{{ peli.title }}</h5>
+                <p><span class="badge badge-info mr-1">Estreno: {{ peli.release_date | date }}</span><span class="badge badge-success">Valoracion: {{peli.vote_average}}</span> </p>
+                <p class="card-text ">{{ peli.overview | shortP }}</p>
+            </div>
         </div>
     </div>
 </div>

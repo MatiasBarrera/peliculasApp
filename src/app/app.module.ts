@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 // Servicio
 import { PeliculasService } from './services/peliculas.service';
@@ -15,9 +16,7 @@ import { UrlImagePipe } from './pipe/url-image.pipe';
 import { ShortPPipe } from './pipe/short-p.pipe';
 
 // Routes
-
 import { APP_ROUTES } from './app.routes';
-
 
 @NgModule({
   declarations: [
@@ -31,9 +30,11 @@ import { APP_ROUTES } from './app.routes';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(APP_ROUTES, {useHash: true})
   ],
   providers: [PeliculasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
