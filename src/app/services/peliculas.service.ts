@@ -38,8 +38,16 @@ export class PeliculasService {
       );
   }
 
+  // TODO: REvisar documentacion themoviedb ¿
+  getById(id: string) {
+    let url = `${ this.urlMoviedb }/discover/movie?id=${ id }&api_key=${ this.apiKey }`;
+    return this.http.get(url)
+      .pipe(
+        map(res => res)
+      );
+  }
+
   buscar( texto: string ) {
     console.log(texto);
   }
-
 }

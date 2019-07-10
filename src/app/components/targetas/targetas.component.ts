@@ -17,7 +17,7 @@ export class TargetasComponent implements OnInit {
   constructor(private ps: PeliculasService, private route: Router) { }
 
   ngOnInit() {
-    this.opcion('cartelera');
+    this.opcion('cartelera'); // 'cartelera'
   }
 
   verMas(id: string) {
@@ -25,11 +25,13 @@ export class TargetasComponent implements OnInit {
   }
 
   opcion(opc: string) {
+
     switch (opc) {
-      case 'cartelera':
+      case 'cartelera': // 'cartelera'
           this.ps.getCartelera().subscribe( res => {
             this.peliculas = this.crearArreglo(res);
             this.opcionFilter = 'Cartelera';
+            console.log(this.peliculas);
           });
         break;
       case 'populares':
@@ -38,7 +40,7 @@ export class TargetasComponent implements OnInit {
             this.opcionFilter = 'Populares';
            });
         break;
-      case 'niños':
+      case 'ninos': // ninos
           this.ps.getPupularesKids().subscribe( res => {
             this.peliculas = this.crearArreglo(res);
             this.opcionFilter = 'Niños';
