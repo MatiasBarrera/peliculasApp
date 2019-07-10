@@ -1,0 +1,10 @@
+<div class="card-columns m-4 animated fadeIn">
+    <div *ngFor="let peli of peliculas" class="card " style="width: 18rem;" (click)="verMas(peli.id)">
+        <img [src]="peli.backdrop_path | urlImage" class="card-img-top" alt="... ">
+        <div class="card-body ">
+            <h5 class="card-title text-center">{{ peli.title }}</h5>
+            <p><span class="badge badge-info mr-1">Estreno: {{ peli.release_date | date }}</span><span class="badge badge-success">Valoracion: {{peli.vote_average}}</span> </p>
+            <p class="card-text ">{{ peli.overview | shortP }}</p>
+        </div>
+    </div>
+</div>

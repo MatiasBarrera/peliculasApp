@@ -17,6 +17,8 @@ import { ShortPPipe } from './pipe/short-p.pipe';
 
 // Routes
 import { APP_ROUTES } from './app.routes';
+import { InformacionComponent } from './components/informacion/informacion.component';
+import { TargetasComponent } from './components/targetas/targetas.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { APP_ROUTES } from './app.routes';
     NavbarComponent,
     BusquedaComponent,
     UrlImagePipe,
-    ShortPPipe
+    ShortPPipe,
+    InformacionComponent,
+    TargetasComponent
   ],
   imports: [
     BrowserModule,

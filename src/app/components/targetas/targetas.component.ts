@@ -1,23 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../services/peliculas.service';
 import { Router } from '@angular/router';
-
 import { PeliculaModel } from '../../models/pelicula.model';
 
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-targetas',
+  templateUrl: './targetas.component.html',
+  styles: []
 })
+export class TargetasComponent implements OnInit {
 
-export class HomeComponent implements OnInit {
-
-  // peliculas: PeliculaModel[] = [];
   peliculas = [];
   opcionFilter = '';
-  constructor(public ps: PeliculasService, private route: Router) {
 
-  }
+  constructor(private ps: PeliculasService, private route: Router) { }
 
   ngOnInit() {
     this.opcion('cartelera');

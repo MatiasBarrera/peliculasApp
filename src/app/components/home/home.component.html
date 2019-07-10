@@ -4,7 +4,7 @@
     </div>
     <hr>
     <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-primary dropdown-toggle btn-sm " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ opcionFilter }} <i class="fas fa-filter"></i>
                 </button>
         <div class="dropdown-menu">
@@ -14,7 +14,8 @@
         </div>
     </div>
     <hr>
-    <div class="card-columns animated fadeIn faster">
+    <app-targetas></app-targetas>
+    <!--  <div class="card-columns animated fadeIn faster">
         <div *ngFor="let peli of peliculas" class="card " style="width: 18rem;">
             <img [src]="peli.backdrop_path | urlImage" class="card-img-top" alt="... " (click)="verMas(peli.id)">
             <div class="card-body ">
@@ -23,7 +24,7 @@
                 <p class="card-text ">{{ peli.overview | shortP }}</p>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <!--  -->
