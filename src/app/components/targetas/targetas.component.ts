@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../services/peliculas.service';
 import { Router } from '@angular/router';
-import { PeliculaModel } from '../../models/pelicula.model';
-
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-targetas',
@@ -11,60 +10,15 @@ import { PeliculaModel } from '../../models/pelicula.model';
 })
 export class TargetasComponent implements OnInit {
 
-  peliculas = [];
-  opcionFilter = '';
+  @Input() pelis: any[] = [];
 
   constructor(private ps: PeliculasService, private route: Router) { }
 
   ngOnInit() {
-    this.opcion('cartelera'); // 'cartelera'
   }
 
-  verMas(id: string) {
-    this.route.navigateByUrl(`/informacion/${id}`);
-  }
-
-  opcion(opc: string) {
-
-    switch (opc) {
-      case 'cartelera': // 'cartelera'
-          this.ps.getCartelera().subscribe( res => {
-            this.peliculas = this.crearArreglo(res);
-            this.opcionFilter = 'Cartelera';
-            console.log(this.peliculas);
-          });
-        break;
-      case 'populares':
-          this.ps.getPopulares().subscribe( res => {
-            this.peliculas = this.crearArreglo(res);
-            this.opcionFilter = 'Populares';
-           });
-        break;
-      case 'ninos': // ninos
-          this.ps.getPupularesKids().subscribe( res => {
-            this.peliculas = this.crearArreglo(res);
-            this.opcionFilter = 'Niños';
-          });
-        break;
-      default:
-        break;
-    }
-  }
-  /**
-   * Transforma objeto a arreglo de objetos.
-   * @ param heroesObj
-   */
-  private crearArreglo(resp: object) {
-    const peliculasObj: PeliculaModel[] = [];
-
-    if ( resp === null) { return []; }
-
-    Object.keys( resp ).forEach( key => {
-      const peli: PeliculaModel = resp[key];
-      // peli.id = key;
-      peliculasObj.push(peli);
-    });
-
-    return peliculasObj;
+  verMas(peli: any) {
+    console.log(peli);
+    this.route.navigateByUrl(`/informacion/${ peli.id }`);
   }
 }

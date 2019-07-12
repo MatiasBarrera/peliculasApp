@@ -1,17 +1,5 @@
-<div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle btn-sm " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              {{ opcionFilter }} <i class="fas fa-filter"></i>
-                            </button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item" (click)="opcion('cartelera')">Cartelera</a>
-        <a class="dropdown-item" (click)="opcion('populares')">Populares</a>
-        <a class="dropdown-item" (click)="opcion('ninos')">Para Niños</a>
-    </div>
-</div>
-<hr>
 <div class="card-columns">
-
-    <div *ngFor="let peli of peliculas" class="card " style="width: 18rem;" (click)="verMas(peli.id)">
+    <div *ngFor="let peli of pelis" class="card " style="width: 18rem;" (click)="verMas(peli)">
         <img [src]="peli.backdrop_path | urlImage" class="card-img-top" alt="... ">
         <div class="card-body ">
             <h5 class="card-title text-center">{{ peli.title }}</h5>

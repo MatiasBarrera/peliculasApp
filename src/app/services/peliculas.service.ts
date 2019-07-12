@@ -38,16 +38,17 @@ export class PeliculasService {
       );
   }
 
-  // TODO: REvisar documentacion themoviedb ¿
-  getById(id: string) {
-    let url = `${ this.urlMoviedb }/discover/movie?id=${ id }&api_key=${ this.apiKey }`;
+  search(termino: string) {
+    // https://api.themoviedb.org/3/search/movie?api_key=91cda4b554a323baa39dc3c3ac0814c7&query=toy%20story
+    let url = `${ this.urlMoviedb }/search/movie?api_key=${ this.apiKey }&query=${termino}`;
     return this.http.get(url)
-      .pipe(
-        map(res => res)
-      );
+    .pipe(
+      map(res => res['results'])
+    );
   }
 
-  buscar( texto: string ) {
-    console.log(texto);
+  getExternalId() {
+    // https://developers.themoviedb.org/3/movies/get-movie-external-ids
+    // https://developers.themoviedb.org/3/find/find-by-id
   }
 }

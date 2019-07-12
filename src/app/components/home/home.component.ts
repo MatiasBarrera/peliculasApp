@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.opcion('cartelera');
+     this.opcion('cartelera');
   }
 
   verMas(id: string) {
@@ -29,8 +29,8 @@ export class HomeComponent implements OnInit {
   }
 
   opcion(opc: string) {
-    /* switch (opc) {
-      case '': // 'cartelera'
+    switch (opc) {
+      case 'cartelera': // 'cartelera'
           this.ps.getCartelera().subscribe( res => {
             this.peliculas = this.crearArreglo(res);
             this.opcionFilter = 'Cartelera';
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
             this.opcionFilter = 'Populares';
            });
         break;
-      case 'cartelera': // 'niños'
+      case 'ninos': // 'niños'
           this.ps.getPupularesKids().subscribe( res => {
             this.peliculas = this.crearArreglo(res);
             this.peliculas.forEach(element => {
@@ -58,9 +58,9 @@ export class HomeComponent implements OnInit {
         break;
       default:
         break;
-    } */
+    }
   }
- /*
+
   private crearArreglo(resp: object) {
     const peliculasObj: PeliculaModel[] = [];
 
@@ -73,5 +73,5 @@ export class HomeComponent implements OnInit {
     });
 
     return peliculasObj;
-  } */
+  }
 }

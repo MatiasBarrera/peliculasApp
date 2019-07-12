@@ -1,7 +1,14 @@
-<div class="animated bounceIn fast">
+<div class="animated bounceInUp slow mt-5">
+    <div class="text-right">
+        <a class="btn btn-default" [routerLink]="['/home']"><i class="fas fa-chevron-left"></i> Back</a>
+    </div>
     <div class="row">
         <div class="col">
-            <input #termino type="text" class="form-control" placeholder="Buscar artista...">
+            <input #termino type="text" class="form-control" placeholder="Buscar artista..." (keyup)="searchPelicula(termino.value)">
         </div>
     </div>
+    <hr>
+</div>
+<div>
+    <app-targetas [pelis]="peliculas" class="animated fadeIn fast"></app-targetas>
 </div>
