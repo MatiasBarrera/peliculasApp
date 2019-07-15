@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-informacion',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class InformacionComponent implements OnInit {
-
-  constructor() { }
+  id = '';
+  constructor(private ar: ActivatedRoute) {
+    this.ar.params.subscribe( params => {
+      this.id = params['movie'];
+      console.log(this.id);
+    });
+  }
 
   ngOnInit() {
+
   }
 
 }

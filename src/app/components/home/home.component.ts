@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
           this.ps.getCartelera().subscribe( res => {
             this.peliculas = this.crearArreglo(res);
             this.opcionFilter = 'Cartelera';
-            console.log(this.peliculas);
+            // console.log(this.peliculas);
           });
         break;
       case 'populares':
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
             });
             this.peliculas = this.peliculasKids;
             this.opcionFilter = 'Niños';
-            console.log(this.peliculas );
+            // console.log(this.peliculas );
           });
         break;
       default:

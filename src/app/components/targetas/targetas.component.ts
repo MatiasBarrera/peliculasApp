@@ -18,7 +18,7 @@ export class TargetasComponent implements OnInit {
   }
 
   verMas(peli: any) {
-    console.log(peli);
+    // console.log(peli);
     this.route.navigateByUrl(`/informacion/${ peli.id }`);
   }
 }
